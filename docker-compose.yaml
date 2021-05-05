@@ -1,0 +1,30 @@
+version: "3"
+volumes:
+  bundle:
+  postgres:
+services:
+  db:
+    image: postgres:13-alpine
+    ports:
+      - 5640:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+  app:
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    command: bundle exec gruf
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/usr/src/app:delegated
+      - /vendor
+      - /tmp
+      - /log
+      - /.git
+    ports:
+      - 56400:50051
+    depends_on:
+      - db

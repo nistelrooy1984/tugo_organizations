@@ -1,0 +1,14 @@
+campaigns:
+  host: <%= ENV.fetch('CAMPAIGNS_HOST') { 'campaigns:50051' } %>
+
+common:
+  host: <%= ENV.fetch('COMMON_HOST') { 'common:50051' } %>
+
+leads:
+  host: <%= ENV.fetch('LEADS_HOST') { 'leads:50051' } %>
+
+organizations:
+  host: <%= ENV.fetch('CONTACTS_HOST') { 'contacts:50051' } %>
+
+env:
+  name: <%= ENV['ENV_NAME'] %>
