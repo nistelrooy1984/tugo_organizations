@@ -1,0 +1,3 @@
+[submodule "tugo_grpc"]
+	path = tugo_grpc
+	url = https://github.com/nistelrooy1984/tugo_grpc.git
